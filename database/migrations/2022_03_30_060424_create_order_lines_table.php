@@ -15,6 +15,10 @@ class CreateOrderLinesTable extends Migration
     {
         Schema::create('order_lines', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('order_id');
+            $table->bigInteger('product_id');
+            $table->bigInteger('order_quantity');
+            $table->bigInteger('line_total');
             $table->timestamps();
         });
     }

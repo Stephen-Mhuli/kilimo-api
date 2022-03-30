@@ -17,11 +17,11 @@ class ProductsTableSeeder extends Seeder
     {
         DB::table('products')->insert([
             //'role_id' => '2',
-            'name' => 'Smart TV',
-            'description' => 'a TV with size 300 by 700 which is very cheap',
-            'price' => 430000,
-            'category' => 'electronics',
-            'quantity' => '3',
+            'name' => 'Ngano',
+            'description' => 'Ngano kutoka kenya',
+            'price' => 4000,
+            'category' => 'Nafaka',
+            'quantity' => '5',
             'image' => 'some image',
 
         ]);
