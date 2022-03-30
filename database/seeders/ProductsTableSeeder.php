@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Seeders;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -16,13 +17,13 @@ class ProductsTableSeeder extends Seeder
     {
         DB::table('products')->insert([
             //'role_id' => '2',
-            'product_name' => 'SmartPhone',
-            'product_description' => 'a phone with size 300 by 700 which is very cheap',
-            'product_price' => 230000,
-            'product_category' => 'electronics',
-            'product_quantity' => '3',
-            'product_image' => 'some image',
-            
+            'name' => 'Smart TV',
+            'description' => 'a TV with size 300 by 700 which is very cheap',
+            'price' => 430000,
+            'category' => 'electronics',
+            'quantity' => '3',
+            'image' => 'some image',
+
         ]);
     }
 }

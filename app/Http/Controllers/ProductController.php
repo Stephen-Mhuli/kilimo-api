@@ -24,19 +24,6 @@ class ProductController extends Controller
      */
     public function create(Request $request)
     {
-        $product = new Product;
-        $product->product_name = $request->product_name;
-        $product->product_description = $request->product_description;
-        $product->product_price = $request->product_price;
-        $product->product_category = $request->product_category;
-        $product->product_quantity = $request->product_quantity;
-        $product->product_image = $request->product_image;
-        $result = $product->save();
-        if ($result) {
-            return ['name' => 'product is saved'];
-        } else {
-            return ['name' => 'product saving failed'];
-        }
     }
 
     /**
@@ -47,7 +34,8 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Product::create($request->all());
+        
     }
 
     /**
@@ -81,20 +69,19 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $product = Product::find($request->product_id);
-        $product->product_name = $request->product_name;
-        $product->product_description = $request->product_description;
-        $product->product_price = $request->product_price;
-        $product->product_category = $request->product_category;
-        $product->product_quantity = $request->product_quantity;
-        $product->product_image = $request->product_image;
+        $product = Product::find($request->id);
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->price = $request->price;
+        $product->category = $request->category;
+        $product->quantity = $request->quantity;
+        $product->image = $request->image;
         $result = $product->save();
-        if($result){
-            return ['name'=>'Data has been updated'];
-        }else{
-            return ['name'=>'Operation failed'];
+        if ($result) {
+            return ['name' => 'Data has been updated'];
+        } else {
+            return ['name' => 'Operation failed'];
         }
-
     }
 
     /**
