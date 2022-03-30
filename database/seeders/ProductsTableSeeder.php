@@ -15,10 +15,14 @@ class ProductsTableSeeder extends Seeder
     public function run()
     {
         DB::table('products')->insert([
-            'role_id' => '2',
-            'name' => 'Customer',
-            'email' => 'customer@gmail.com',
-            'password' => Hash::make('@customer'),
+            //'role_id' => '2',
+            'product_name' => 'SmartPhone',
+            'product_description' => 'a phone with size 300 by 700 which is very cheap',
+            'product_price' => 230000,
+            'product_category' => 'electronics',
+            'product_quantity' => '3',
+            'product_image' => 'some image',
+            
         ]);
     }
 }
