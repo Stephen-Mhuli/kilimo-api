@@ -15,18 +15,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Public routes
+Route::get('/products', [ProductController::class, 'index']);//show all products
+Route::get('/products/search/{name}', [ProductController::class, 'search']);//search products by name
+Route::get('/products/{id}', [ProductController::class, 'show']);//show specific product by id
+
+//Protected routes
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::post('/products', [ProductController::class, 'store']);//post new product
+    Route::put('/products/{id}', [ProductController::class, 'update']);//update a specific product by id
+    Route::delete('/products/{id}', [ProductController::class, 'destroy']);//Delete a specific product by id
+});
 
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
 
-Route::get('/products', [ProductController::class, 'index']);
-Route::post('/products', [ProductController::class, 'store']);
-Route::get('/products/{id}', [ProductController::class, 'show']);
-Route::put('/products/{id}', [ProductController::class, 'update']);
-Route::delete('/products/{id}', [ProductController::class, 'destroy']);
-Route::get('/products/search/{name}', [ProductController::class, 'search']);
+
+
+
 
 
 Route::get('/orders', [ProductController::class, 'index']);
