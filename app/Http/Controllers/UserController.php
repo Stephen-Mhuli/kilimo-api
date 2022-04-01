@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 use Laravel\Sanctum\HasApiTokens;
@@ -49,20 +48,23 @@ class UserController extends Controller
     //Login function
     public function login(Request $request)
     {
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
+        $fields = $request->validate([
+            'email' => 'required | email | string',
+            'password' => 'required | string | min:8',
         ]);
 
-        $user = User::where('email', $request->email)->first();
+        $user = User::where('email', $fields['email'])->first();
 
-        if (!$user || !Hash::check($request->password, $user->password)) {
-            throw ValidationException::withMessages([
-                'email' => ['The provided credentials are incorrect.'],
-            ]);
+        if (!$user || !Hash::check($fields['password'], $user->password)) {
+            return Response(['message' => 'Invalid Credentials'], 401);
+        } else {
+            $token = $user->createToken('kilimoapitoken')->plainTextToken;
+            $response = [
+                'user' => $user,
+                'token' => $token
+            ];
         }
-
-        return $user->createToken($request->device_name)->plainTextToken;
+        return response($response, 200);
     }
 
     //Logout function
@@ -70,6 +72,8 @@ class UserController extends Controller
     {
         auth()->user()->tokens()->delete();
 
-        return ['message' => 'you are logged out'];
+        return Response([
+            'message' => 'Logged Out Successfully'
+        ]);
     }
 }
