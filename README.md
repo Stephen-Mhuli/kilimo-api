@@ -1,2 +1,2 @@
 # KILIMO API
-#### is an API build in Laravel
+#### is an API for e commerce mobile and web applications building by using Laravel Framework.
