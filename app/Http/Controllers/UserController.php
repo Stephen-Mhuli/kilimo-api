@@ -32,4 +32,8 @@ class UserController extends Controller
 
         // $response = 
     }
+
+    public function login(Request $request){
+
+    }
 }

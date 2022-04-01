@@ -14,7 +14,7 @@ class User extends Authenticatable
     use LaratrustUserTrait;
     use HasApiTokens, HasFactory, Notifiable;
 
-    public function roles()
+    public function rols()
     {
         return $this->belongsTo('App\Models\Role');
     }

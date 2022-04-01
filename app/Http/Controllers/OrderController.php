@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -14,7 +15,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        return Order::all();
     }
 
     /**
@@ -24,7 +25,6 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -35,7 +35,14 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'order_date' => 'required',
+            'order_total' => 'required',
+            'user_id' => 'required',
+            'payment_id' => 'required',
+
+        ]);
+        return Order::create($request->all());
     }
 
     /**
@@ -44,9 +51,9 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function show($id)
     {
-        //
+        return Order::find($id);
     }
 
     /**
@@ -67,9 +74,11 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Order $order)
+    public function update(Request $request,$id)
     {
-        //
+        $productOrder = Order::find($id);
+        $productOrder->update($request->all());
+        return $productOrder;
     }
 
     /**
@@ -78,8 +87,8 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Order $order)
+    public function destroy($id)
     {
-        //
+        Order::destroy($id);
     }
 }

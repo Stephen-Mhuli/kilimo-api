@@ -14,19 +14,20 @@ return [
     'roles_structure' => [
         'admin' => [
             'users' => 'c,r,u,d',
-            'payments' => 'c,r,u,d',
+            'orders' => 'c,r,u,d',
             'products' => 'c,r,u,d',
-            'profile' => 'r,u'
+            'profile' => 'c,r,u,d'
         ],
         'seller' => [
             'users' => 'r',
+            'orders' => 'r',
             'products' => 'c,r,u,d',
             'profile' => 'r,u'
         ],
         'customer' => [
-            'profile' => 'r,u',
+            'orders' => 'c',
             'products' => 'r',
-            'payments' => 'c',
+            'profile' => 'r,u',
         ],
         
     ],
