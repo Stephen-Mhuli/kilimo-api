@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,15 +18,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Public routes
-Route::get('/products', [ProductController::class, 'index']); //show all products
-Route::get('/products/search/{name}', [ProductController::class, 'search']); //search products by name
-Route::get('/products/{id}', [ProductController::class, 'show']); //show specific product by id
+Route::get('/products', [ProductController::class, 'index'])->name('product.index'); //show all products
+Route::get('/products/search/{name}', [ProductController::class, 'search'])->name('product.search'); //search products by name
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('product.show'); //show specific product by id
+Route::post('/register',[UserController::class,'register'])->name('register');
+Route::post('/login',[UserController::class,'login'])->name('login');
 
 //Protected routes
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::post('/products', [ProductController::class, 'store']); //post new product
-    Route::put('/products/{id}', [ProductController::class, 'update']); //update a specific product by id
-    Route::delete('/products/{id}', [ProductController::class, 'destroy']); //Delete a specific product by id
+    Route::post('/products', [ProductController::class, 'store'])->name('product.store'); //post new product
+    Route::put('/products/{id}', [ProductController::class, 'update'])->name('product.update'); //update a specific product by id
+    Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('product.destroy'); //Delete a specific product by id
 });
 
 
