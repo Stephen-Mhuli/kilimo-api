@@ -21,8 +21,10 @@ class CreateProductsTable extends Migration
             $table->string('category');
             $table->string('quantity');
             $table->binary('photo');
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('order_id')->constrained();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('order_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('order_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
