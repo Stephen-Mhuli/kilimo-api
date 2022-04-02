@@ -18,8 +18,9 @@ class CreateOrdersTable extends Migration
             $table->decimal('order_total',8,2);
             $table->string('order_description');
             $table->string('order_date');
-            $table->bigInteger('user_id');
-            $table->bigInteger('payment_id');
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('payment_id')->constrained();
+            $table->foreignId('shipment_id')->constrained();
             $table->timestamps();
         });
     }

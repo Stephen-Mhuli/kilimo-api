@@ -21,6 +21,8 @@ class CreateProductsTable extends Migration
             $table->string('category');
             $table->string('quantity');
             $table->binary('photo');
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('order_id')->constrained();
             $table->timestamps();
         });
     }
