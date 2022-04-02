@@ -21,7 +21,8 @@ class UserController extends Controller
             'last_name' => 'required | string',
             'email' => 'required | email | string | unique:users,email',
             'address' => 'required | string',
-            'password' => 'required | string | confirmed'
+            'password' => 'required | string | confirmed',
+            'role_id' => 'required'
 
         ]);
 
@@ -32,8 +33,9 @@ class UserController extends Controller
             'email' => $fields['email'],
             'address' => $fields['address'],
             'password' => Hash::make($fields['password']),
+            'address' => $fields['address']
         ]);
-
+        $user->attachRole($request->role_id);
         $token = $user->createToken('kilimoapitoken')->plainTextToken;
 
         $response = [
