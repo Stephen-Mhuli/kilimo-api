@@ -14,7 +14,9 @@ class ShipmentFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'company_name'=> $this->faker->company(),
+            'phone_number'=> $this->faker->phoneNumber(),
+            'shipment_price'=>$this->faker->numerify()
         ];
     }
 }

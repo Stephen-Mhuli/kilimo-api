@@ -14,7 +14,8 @@ class OrderDetailFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'order_quantity'=>$this->faker->numerify(),
+            'order_total'=>$this->faker->numerify()
         ];
     }
 }

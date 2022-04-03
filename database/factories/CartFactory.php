@@ -14,7 +14,7 @@ class CartFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'cart_number'=>$this->faker->numerify()
         ];
     }
 }

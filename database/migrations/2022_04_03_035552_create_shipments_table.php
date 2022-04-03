@@ -16,7 +16,7 @@ class CreateShipmentsTable extends Migration
         Schema::create('shipments', function (Blueprint $table) {
             $table->id();
             $table->string('company_name');
-            $table->string('phone');
+            $table->string('phone_number');
             $table->decimal('shipment_price',8,2);
             $table->bigInteger('user_id');
             $table->timestamps();

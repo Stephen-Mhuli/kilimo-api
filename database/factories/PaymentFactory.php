@@ -14,7 +14,9 @@ class PaymentFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'amount'=>$this->faker->numerify(),
+            'payment_type'=>$this->faker->title(),
+            'payment_status'=>$this->faker->title(),
         ];
     }
 }
