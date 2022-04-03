@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\OrderLine;
+use App\Models\OrderDetail;
 use Illuminate\Http\Request;
 
-class OrderLineController extends Controller
+class OrderDetailController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -44,7 +44,7 @@ class OrderLineController extends Controller
      * @param  \App\Models\OrderLine  $orderLine
      * @return \Illuminate\Http\Response
      */
-    public function show(OrderLine $orderLine)
+    public function show(OrderDetail $orderLine)
     {
         //
     }
@@ -55,7 +55,7 @@ class OrderLineController extends Controller
      * @param  \App\Models\OrderLine  $orderLine
      * @return \Illuminate\Http\Response
      */
-    public function edit(OrderLine $orderLine)
+    public function edit(OrderDetail $orderLine)
     {
         //
     }
@@ -67,7 +67,7 @@ class OrderLineController extends Controller
      * @param  \App\Models\OrderLine  $orderLine
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, OrderLine $orderLine)
+    public function update(Request $request, OrderDetail $orderLine)
     {
         //
     }
@@ -75,10 +75,10 @@ class OrderLineController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\OrderLine  $orderLine
+     * @param  \App\Models\OrderDetail  $orderLine
      * @return \Illuminate\Http\Response
      */
-    public function destroy(OrderLine $orderLine)
+    public function destroy(OrderDetail $orderLine)
     {
         //
     }

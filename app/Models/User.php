@@ -15,14 +15,24 @@ class User extends Authenticatable
     use LaratrustUserTrait;
     use HasApiTokens, HasFactory, Notifiable;
 
-    public function rols()
+    public function roles()
     {
-        return $this->belongsTo('App\Models\Role');
+        return $this->hasMany(Role::class);
     }
     public function orders()
     {
         return $this->hasMany(Order::class);
     }
+    public function shipments(){
+        return $this->hasMany(Shipment::class);
+    }
+    public function products(){
+        return $this->hasMany(Product::class);
+    }
+    public function payments(){
+        return $this->hasMany(Payment::class);
+    }
+
 
     /**
      * The attributes that are mass assignable.

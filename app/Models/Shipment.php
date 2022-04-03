@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Order extends Model
+class Shipment extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'order_total',
-        'order_description',
-    ];
+
+    public function user(){
+
+        $this->belongsTo(User::class);
+    }
 }
