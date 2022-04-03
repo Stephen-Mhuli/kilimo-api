@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Product;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -15,15 +16,6 @@ class ProductsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('products')->insert([
-            //'role_id' => '2',
-            'name' => 'Ngano',
-            'description' => 'Ngano kutoka kenya',
-            'price' => 4000,
-            'category' => 'Nafaka',
-            'quantity' => '5',
-            'image' => 'some image',
-
-        ]);
+        Product::factory()->times(count: 100)->create();
     }
 }
