@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\UserPayment;
+use App\Models\Payment;
 use Illuminate\Http\Request;
 
-class UserPaymentController extends Controller
+class PaymentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class UserPaymentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\UserPayment  $userPayment
+     * @param  \App\Models\Payment  $userPayment
      * @return \Illuminate\Http\Response
      */
-    public function show(UserPayment $userPayment)
+    public function show(Payment $payment)
     {
         //
     }
@@ -55,7 +55,7 @@ class UserPaymentController extends Controller
      * @param  \App\Models\UserPayment  $userPayment
      * @return \Illuminate\Http\Response
      */
-    public function edit(UserPayment $userPayment)
+    public function edit(Payment $payment)
     {
         //
     }
@@ -67,7 +67,7 @@ class UserPaymentController extends Controller
      * @param  \App\Models\UserPayment  $userPayment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, UserPayment $userPayment)
+    public function update(Request $request, Payment $payment)
     {
         //
     }
@@ -78,7 +78,7 @@ class UserPaymentController extends Controller
      * @param  \App\Models\UserPayment  $userPayment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(UserPayment $userPayment)
+    public function destroy(Payment $payment)
     {
         //
     }

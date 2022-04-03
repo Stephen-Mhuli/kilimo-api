@@ -14,20 +14,30 @@ return [
     'roles_structure' => [
         'admin' => [
             'users' => 'c,r,u,d',
-            'orders' => 'c,r,u,d',
+            'carts' => 'r,d',
             'products' => 'c,r,u,d',
-            'profile' => 'c,r,u,d'
+            'orders' => 'r,d',
+            'payments' => 'r,d',
+            'shipments' => 'c,r,u,d',
+            'orderdetails' => 'r,d',
         ],
         'seller' => [
             'users' => 'r',
-            'orders' => 'r',
+            'carts' => 'r',
             'products' => 'c,r,u,d',
-            'profile' => 'r,u'
+            'orders' => 'r',
+            'payments' => 'r',
+            'shipments' => 'c,r,u,d',
+            'orderdetails' => 'r',
         ],
         'customer' => [
-            'orders' => 'c',
+            'users' => 'r',
+            'carts' => 'c,r,u,d',
             'products' => 'r',
-            'profile' => 'r,u',
+            'orders' => 'c,r,u,d',
+            'payments' => 'c,r',
+            'shipments' => 'r',
+            'orderdetails' => 'r',
         ],
         
     ],
