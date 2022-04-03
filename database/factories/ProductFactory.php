@@ -14,12 +14,12 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name(),
-            'description' => $this->faker->text(),
+            'name' => $this->faker->userName(),
+            'description' => $this->faker->paragraph(),
             'category' => $this->faker->title(),
-            'price' => $this->faker->integer(),
-            'quantity' => $this->faker->integer(),
-            'photo' => $this->faker->image(),
+            'price' => $this->faker->numerify(),
+            'quantity' => $this->faker->numerify(),
+            'image' => $this->faker->image(),
 
         ];
     }

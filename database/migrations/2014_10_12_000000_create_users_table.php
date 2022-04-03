@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email')->unique();
-            $table->string('zipcode');
+            $table->string('zipcode')->nullable();
             $table->string('street');
             $table->string('city');
             $table->string('country');

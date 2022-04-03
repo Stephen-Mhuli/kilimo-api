@@ -19,4 +19,7 @@ class Order extends Model
     public function shipments(){
         return $this->hasOne(Shipment::class);
     }
+    public function orderdetails(){
+        return $this->hasOne(OrderDetail::class);
+    }
 }
