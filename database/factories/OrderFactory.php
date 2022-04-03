@@ -15,7 +15,7 @@ class OrderFactory extends Factory
     {
         return [
             'order_total' => $this->faker->numerify(),
-            'order_description' => $this->faker->paragraph(),
+            'order_description' => $this->faker->text(10),
         ];
     }
 }

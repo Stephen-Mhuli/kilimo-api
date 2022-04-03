@@ -14,6 +14,6 @@ class CartsTableSeeder extends Seeder
      */
     public function run()
     {
-        Cart::factory()->times(count: 100)->create();
+        Cart::factory()->times(count: 5)->create();
     }
 }

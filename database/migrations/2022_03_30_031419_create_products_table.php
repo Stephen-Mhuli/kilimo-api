@@ -21,8 +21,8 @@ class CreateProductsTable extends Migration
             $table->string('category');
             $table->string('quantity');
             $table->binary('image');
-            $table->bigInteger('user_id');
-            $table->bigInteger('order_id');
+            $table->bigInteger('user_id')->nullable();
+            $table->bigInteger('order_id')->nullable();
             $table->timestamps();
         });
     }

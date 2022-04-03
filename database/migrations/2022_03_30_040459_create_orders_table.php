@@ -17,9 +17,9 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->decimal('order_total', 8, 2);
             $table->string('order_description');
-            $table->bigInteger('shipment_id');
-            $table->bigInteger('user_id');
-            $table->bigInteger('payment_id');
+            $table->bigInteger('shipment_id')->nullable();
+            $table->bigInteger('user_id')->nullable();
+            $table->bigInteger('payment_id')->nullable();
             $table->timestamps();
         });
     }

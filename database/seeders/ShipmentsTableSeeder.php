@@ -14,6 +14,6 @@ class ShipmentsTableSeeder extends Seeder
      */
     public function run()
     {
-        Shipment::factory()->times(count: 100)->create();
+        Shipment::factory()->times(count: 5)->create();
     }
 }

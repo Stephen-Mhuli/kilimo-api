@@ -18,8 +18,8 @@ class CreatePaymentsTable extends Migration
             $table->decimal('amount');
             $table->string('payment_type');
             $table->string('payment_status');
-            $table->bigInteger('user_id');
-            $table->bigInteger('order_id');
+            $table->bigInteger('user_id')->nullable();
+            $table->bigInteger('order_id')->nullable();
             $table->timestamps();
         });
     }

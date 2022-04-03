@@ -15,8 +15,8 @@ class ProductFactory extends Factory
     {
         return [
             'name' => $this->faker->userName(),
-            'description' => $this->faker->paragraph(),
-            'category' => $this->faker->title(),
+            'description' => $this->faker->text(20),
+            'category' => $this->faker->text(20),
             'price' => $this->faker->numerify(),
             'quantity' => $this->faker->numerify(),
             'image' => $this->faker->image(),
