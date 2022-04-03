@@ -5,7 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class UserPayment extends Model
+class Payment extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'amount',
+        'payment_type',
+        'payment_status'
+    ];
+
+    public function orders(){
+        $this->belongsTo(Order::class);
+    }
+    public function users(){
+        $this->belongsTo(User::class);
+    }
+
 }

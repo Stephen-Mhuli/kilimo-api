@@ -12,4 +12,11 @@ class Order extends Model
         'order_total',
         'order_description',
     ];
+
+    public function payments(){
+        $this->hasOne(Payment::class);
+    }
+    public function shipments(){
+        return $this->hasOne(Shipment::class);
+    }
 }

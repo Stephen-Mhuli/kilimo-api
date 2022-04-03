@@ -10,7 +10,9 @@ class Shipment extends Model
     use HasFactory;
 
     public function user(){
-
         $this->belongsTo(User::class);
+    }
+    public function order(){
+        $this->belongsTo(Order::class);
     }
 }
