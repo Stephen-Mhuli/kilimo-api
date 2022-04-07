@@ -16,7 +16,7 @@ class ShipmentFactory extends Factory
         return [
             'company_name'=> $this->faker->company(),
             'phone_number'=> $this->faker->phoneNumber(),
-            'shipment_price'=>$this->faker->numerify()
+            'price'=>$this->faker->numerify()
         ];
     }
 }

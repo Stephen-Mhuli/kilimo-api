@@ -15,10 +15,10 @@ class Payment extends Model
         'payment_status'
     ];
 
-    public function orders(){
+    public function order(){
         $this->belongsTo(Order::class);
     }
-    public function users(){
+    public function user(){
         $this->belongsTo(User::class);
     }
 

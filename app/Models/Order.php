@@ -13,13 +13,13 @@ class Order extends Model
         'order_description',
     ];
 
-    public function payments(){
+    public function payment(){
         $this->hasOne(Payment::class);
     }
-    public function shipments(){
+    public function shipment(){
         return $this->hasOne(Shipment::class);
     }
-    public function orderdetails(){
-        return $this->hasOne(OrderDetail::class);
+    public function product(){
+        return $this->hasMany(Product::class);
     }
 }

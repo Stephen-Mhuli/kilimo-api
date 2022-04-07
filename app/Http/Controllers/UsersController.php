@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 use Laravel\Sanctum\HasApiTokens;
 
-class UserController extends Controller
+class UsersController extends Controller
 {
     use HasApiTokens;
 

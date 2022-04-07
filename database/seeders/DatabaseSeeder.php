@@ -15,11 +15,10 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(UsersTableSeeder::class);
         $this->call(OrdersTableSeeder::class);
-        $this->call(OrderDetailsTableSeeder::class);
         $this->call(ProductsTableSeeder::class);
         $this->call(PaymentsTableSeeder::class);
         $this->call(ShipmentsTableSeeder::class);
-        $this->call(CartsTableSeeder::class);
+        // $this->call(CartsTableSeeder::class);
         $this->call(LaratrustSeeder::class);
     }
 }
