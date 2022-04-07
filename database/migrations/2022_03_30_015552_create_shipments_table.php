@@ -17,8 +17,12 @@ class CreateShipmentsTable extends Migration
             $table->id();
             $table->string('company_name');
             $table->string('phone_number');
-            $table->decimal('shipment_price',8,2);
-            $table->bigInteger('user_id')->nullable();
+            $table->decimal('price',8,2)->default(0.00);
+            $table->foreignId('user_id')
+                  ->nullable()
+                  ->constrained()
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
             $table->timestamps();
         });
     }

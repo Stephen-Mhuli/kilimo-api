@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\OrdersController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -33,16 +33,16 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 });
 
 
+//Order routes
+Route::get('/orders', [OrdersController::class, 'index']);
+Route::post('/orders', [OrdersController::class, 'store']);
+Route::get('/orders/{id}', [OrdersController::class, 'show']);
+Route::put('/orders/{id}', [OrdersController::class, 'update']);
+Route::delete('/orders/{id}', [OrdersController::class, 'destroy']);
 
-Route::get('/orders', [OrderController::class, 'index']);
-Route::post('/orders', [OrderController::class, 'store']);
-Route::get('/orders/{id}', [OrderController::class, 'show']);
-Route::put('/orders/{id}', [OrderController::class, 'update']);
-Route::delete('/orders/{id}', [OrderController::class, 'destroy']);
-
-
-Route::get('/users', [OrdersController::class, 'index']);
-Route::post('/users', [OrdersController::class, 'store']);
-Route::get('/users/{id}', [OrdersController::class, 'show']);
-Route::put('/users/{id}', [OrdersController::class, 'update']);
-Route::delete('/users/{id}', [OrdersController::class, 'destroy']);
+//User routes
+Route::get('/users', [UsersController::class, 'index']);
+Route::post('/users', [UsersController::class, 'store']);
+Route::get('/users/{id}', [UsersController::class, 'show']);
+Route::put('/users/{id}', [UsersController::class, 'update']);
+Route::delete('/users/{id}', [UsersController::class, 'destroy']);

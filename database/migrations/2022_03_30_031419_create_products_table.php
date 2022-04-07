@@ -18,11 +18,18 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->longText('description');
             $table->integer('price');
-            $table->string('category');
             $table->string('quantity');
             $table->binary('image');
-            $table->bigInteger('user_id')->nullable();
-            $table->bigInteger('order_id')->nullable();
+            $table->foreignId('user_id')
+                  ->nullable()
+                  ->constrained()
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
+            $table->foreignId('order_id')
+                  ->nullable()
+                  ->constrained()
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
             $table->timestamps();
         });
     }
