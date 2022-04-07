@@ -14,7 +14,7 @@ class PaymentsController extends Controller
      */
     public function index()
     {
-        //
+        return Payment::all();
     }
 
     /**
@@ -22,10 +22,6 @@ class PaymentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -35,7 +31,13 @@ class PaymentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'amount' => 'required',
+            'payment_type' => 'required',
+            'payment_status' => 'required',
+
+        ]);
+        return Payment::create($request->all());
     }
 
     /**
@@ -44,21 +46,19 @@ class PaymentsController extends Controller
      * @param  \App\Models\Payment  $userPayment
      * @return \Illuminate\Http\Response
      */
-    public function show(Payment $payment)
+    public function show($id)
     {
-        //
+        return Payment::find($id);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\UserPayment  $userPayment
-     * @return \Illuminate\Http\Response
      */
-    public function edit(Payment $payment)
-    {
-        //
-    }
+    // public function edit($id)
+    // {
+    //     return Payment::find($id);
+    // }
 
     /**
      * Update the specified resource in storage.
@@ -67,9 +67,11 @@ class PaymentsController extends Controller
      * @param  \App\Models\UserPayment  $userPayment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Payment $payment)
+    public function update(Request $request, $id)
     {
-        //
+        $payment = Payment::find($id);
+        $payment->update($request->all());
+        return $payment;
     }
 
     /**
@@ -78,8 +80,8 @@ class PaymentsController extends Controller
      * @param  \App\Models\UserPayment  $userPayment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Payment $payment)
+    public function destroy($id)
     {
-        //
+        Payment::destroy($id);
     }
 }
