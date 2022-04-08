@@ -22,10 +22,10 @@ class ShipmentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+    // public function create()
+    // {
+    //     //
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -56,7 +56,7 @@ class ShipmentsController extends Controller
      * Show the form for editing the specified resource.
      *
      */
-    public function edit($id)
+    public function show($id)
     {
         return Shipment::find($id);
     }

@@ -24,15 +24,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/products', [ProductsController::class, 'index'])->name('product.index'); //show all products
 Route::get('/products/search/{name}', [ProductsController::class, 'search'])->name('product.search'); //search products by name
 Route::get('/products/{id}', [ProductsController::class, 'show'])->name('product.show'); //show specific product by id
-Route::post('/register',[AuthController::class,'register'])->name('register');
-Route::post('/login',[AuthController::class,'login'])->name('login');
+Route::post('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 //Protected routes
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/products', [ProductsController::class, 'store'])->name('product.store'); //post new product
     Route::put('/products/{id}', [ProductsController::class, 'update'])->name('product.update'); //update a specific product by id
     Route::delete('/products/{id}', [ProductsController::class, 'destroy'])->name('product.destroy'); //Delete a specific product by id
-    Route::post('/logout',[AuthController::class,'logout'])->name('logout');
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
 
@@ -59,8 +59,8 @@ Route::delete('/Payments/{id}', [PaymentsController::class, 'destroy']);
 
 
 //Payment routes
-Route::get('/shipments', [shipmentsController::class, 'index']);
-Route::post('/shipments', [shipmentsController::class, 'store']);
-Route::get('/shipments/{id}', [shipmentsController::class, 'show']);
-Route::put('/shipments/{id}', [shipmentsController::class, 'update']);
-Route::delete('/shipments/{id}', [shipmentsController::class, 'destroy']);
+Route::get('/shipments', [ShipmentsController::class, 'index']);
+Route::post('/shipments', [ShipmentsController::class, 'store']);
+Route::get('/shipments/{id}', [ShipmentsController::class, 'show']);
+Route::put('/shipments/{id}', [ShipmentsController::class, 'update']);
+Route::delete('/shipments/{id}', [ShipmentsController::class, 'destroy']);
